@@ -1,10 +1,23 @@
-# monitoring-script
+# MONITORING SCRIPT
 
-## Here is detailed brief monitoring script function
+## DETAILED GUIDE TO RUN MONITORING SCRIPT ON THE SERVER
 
-`installation` This handles the necessary and preprequite installation for our `devopsfetch` script to execute. both shell script file needs to be given permission to run `chmod 700 <script file name >`
+**CREATED EXECUTION FILE SCRIPTS INCLUDES:** Created execution file scripts includes
 
-On exection of the main script, which is **devopsfetch.sh**,
+```sh
+installation
+devopsfetch
+```
+
+`installation`- This handles installation of the necessary preprequite needed for `devopsfetch` script to execute its functions. Both shell script file needs to be given permission to run, below is the cmd to give file permission.
+
+```sh
+chmod 700 installation
+chmod 700 devopsfetch
+```
+## STEPS TO EXECUTE OUR SCRIPT
+
+On exection of the main script, which is `devopsfetch`,
 
 `./devopsfetch -h`
 
