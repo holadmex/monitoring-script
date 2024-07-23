@@ -9,7 +9,7 @@ installation
 devopsfetch
 ```
 
-`installation`- This handles installation of the necessary preprequite needed for `devopsfetch` script to execute its functions. Both shell script file needs to be given permission to run, below is the cmd to give file permission.
+`installation`- This handles installation of the necessary preprequisite needed for `devopsfetch` script to execute its functions. Both shell script file needs to be given permission to run. Below is the cmd to give file permission.
 
 ```sh
 chmod 700 installation
@@ -23,19 +23,34 @@ On exection of the main script, which is `devopsfetch`,
 
 should display the output below
 
-Options:
--p, --port            Display all active ports and services or detailed information about a specific port
--d, --docker          List all Docker images and containers or detailed information about a specific container
--n, --nginx           Display all Nginx domains and their ports or detailed configuration information for a specific domain
--u, --users           List all users and their last login times or detailed information about a specific user
--t, --time            Display activities within a specified time range or for a specific date
--h, --help            Display this help message
+## Options
 
-The above **options:** are for passing specific parameters to monitoring different activites the server. (e.g `./devopsfetch -p` or `--port`), (`./devopsfetch --80`)
+- **`-p`, `--port`**  
+  Display all active ports and services or detailed information about a specific port.
+
+- **`-d`, `--docker`**  
+  List all Docker images and containers or detailed information about a specific container.
+
+- **`-n`, `--nginx`**  
+  Display all Nginx domains and their ports or detailed configuration information for a specific domain.
+
+- **`-u`, `--users`**  
+  List all users and their last login times or detailed information about a specific user.
+
+- **`-t`, `--time`**  
+  Display activities within a specified time range or for a specific date.
+
+- **`-h`, `--help`**  
+  Display this help message.
+
+
+The above "options:" are for passing specific parameters to monitoring different activites on the server. (e.g `./devopsfetch -p` or `--port`), (`./devopsfetch --80`)
 
 ## Logging
 
-To check logging metrics carried out with the monitoring commands on the sever, kindly `cd` out of the current working directory to the root directory of your sever.
+To check logging metrics carried out with the monitoring commands on the sever, kindly `cd` out of the current working directory to the root directory of the sever.
+
+**THANKS FOR READING...**
 
 `cd /var/log/devopsfetch.log`
 
