@@ -50,8 +50,8 @@ The above "options:" are for passing specific parameters to monitoring different
 
 To check logging metrics carried out with the monitoring commands on the sever, kindly `cd` out of the current working directory to the root directory of the sever.
 
-**THANKS FOR READING...**
-
 `cd /var/log/devopsfetch.log`
 
 The command above output the metrics on the server. In other words its a path to get historical data of activites on the server.
+
+**THANKS FOR READING...**
