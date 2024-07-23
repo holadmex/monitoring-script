@@ -9,7 +9,7 @@ installation
 devopsfetch
 ```
 
-`installation`- This handles installation of the necessary preprequisite needed for `devopsfetch` script to execute its functions. Both shell script file needs to be given permission to run. Below is the cmd to give file permission.
+`installation`- This handles installation of the necessary preprequisite needed for `devopsfetch` script to execute its functions. Both shell script file needs to be given permission to execute. Below is the cmd to give file permission.
 
 ```sh
 chmod 700 installation
@@ -17,7 +17,7 @@ chmod 700 devopsfetch
 ```
 ## STEPS TO EXECUTE OUR SCRIPT
 
-On exection of the main script, which is `devopsfetch`,
+**Devopsfetch:** This script provides various functionalities for monitoring and retrieving server information, such as active ports, Docker containers, Nginx configurations, user logins, and activities within a specified time range. Run the script using the command:
 
 `./devopsfetch -h`
 
