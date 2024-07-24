@@ -9,7 +9,7 @@ installation
 devopsfetch
 ```
 
-**installation:** This script handles installation of the necessary preprequisite needed for `devopsfetch` script to execute its functions. However, both shell script file needs to be given permission to execute. Below is the cmd to give file permission.
+**Installation:** This script handles installation of the necessary preprequisite needed for `devopsfetch` script to execute its functions. However, both shell script file needs to be given permission to execute. Below is the cmd to give file permission.
 
 ```sh
 chmod 700 installation
