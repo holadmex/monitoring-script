@@ -16,7 +16,7 @@ help() {
     echo "-d, --docker          List all Docker images and containers or detailed information about a specific container"
     echo "-n, --nginx           Display all Nginx domains, their ports, and proxy settings or detailed configuration information for a specific domain"
     echo "-u, --users           List all users and their last login times or detailed information about a specific user"
-    echo "-t, --time            Display activities within a specified time range or for a specific date"
+    echo "-t, --time            Display activities within a specified date range or for a specific date"
     echo "-h, --help            Display this help message"
 }
 
@@ -105,31 +105,31 @@ user_info() {
     lastlog | grep "$1" | awk '{print "Last Login: " $3" "$4" "$5}'
 }
 
-# Display activities within a specified time range or for a specific date
+# Display activities within a specified date range or for a specific date
 time_range() {
-    local start_time="$1"
-    local end_time="$2"
+    local start_date="$1"
+    local end_date="$2"
 
-    # Validate and format start time
-    if ! date --date="$start_time" >/dev/null 2>&1; then
-        echo "Error: Invalid start time format."
+    # Validate and format start date
+    if ! date --date="$start_date" >/dev/null 2>&1; then
+        echo "Error: Invalid start date format."
         exit 1
     fi
 
-    # If end_time is not provided, set it to the current time
-    if [ -z "$end_time" ]; then
-        end_time=$(date --iso-8601=seconds)
-    elif ! date --date="$end_time" >/dev/null 2>&1; then
-        echo "Error: Invalid end time format."
+    # If end_date is not provided, set it to the next day
+    if [ -z "$end_date" ]; then
+        end_date=$(date --date="$start_date + 1 day" +"%Y-%m-%d")
+    elif ! date --date="$end_date" >/dev/null 2>&1; then
+        echo "Error: Invalid end date format."
         exit 1
     fi
 
-    log "Activities from $start_time to $end_time:"
+    log "Activities from $start_date to $end_date:"
     echo -e "\033[1m| TIMESTAMP                   | USER  | ACTIVITY               |\033[0m"
     echo "---------------------------------------------------------------"
 
-    # Execute journalctl command with the given time range
-    journalctl --since="$start_time" --until="$end_time" --output=short-iso | while IFS= read -r line; do
+    # Execute journalctl command with the given date range
+    journalctl --since="$start_date" --until="$end_date" --output=short-iso | while IFS= read -r line; do
         timestamp=$(echo "$line" | awk '{print $1 " " $2}')
         user=$(echo "$line" | awk '{print $6}')
         activity=$(echo "$line" | awk '{print $7, $8, $9, $10}')
@@ -171,7 +171,7 @@ case $1 in
         ;;
     -t|--time)
         if [ -z "$2" ]; then
-            echo "Please provide a start time."
+            echo "Please provide a start date."
             exit 1
         else
             time_range "$2" "$3"
