@@ -9,7 +9,7 @@ installation
 devopsfetch
 ```
 
-`installation`- This handles installation of the necessary preprequisite needed for `devopsfetch` script to execute its functions. Both shell script file needs to be given permission to execute. Below is the cmd to give file permission.
+**installation:** This script handles installation of the necessary preprequisite needed for `devopsfetch` script to execute its functions. However, both shell script file needs to be given permission to execute. Below is the cmd to give file permission.
 
 ```sh
 chmod 700 installation
@@ -44,7 +44,10 @@ should display the output below
   Display this help message.
 
 
-The above "options:" are for passing specific parameters to monitoring different activites on the server. (e.g `./devopsfetch -p` or `--port`), (`./devopsfetch --80`)
+The above "options:" are for passing specific parameters to monitoring different activites on the server. 
+
+## Use Cases
+`./devopsfetch -p` **or** `--port`, `./devopsfetch --80`
 
 ## Logging
 
