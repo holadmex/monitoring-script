@@ -187,5 +187,5 @@ while true; do
             exit 1
             ;;
     esac
-    sleep 300  # Sleep for 5 minutes before the next iteration
+    sleep 30  # Sleep for 5 minutes before the next iteration
 done
