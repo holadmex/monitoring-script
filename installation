@@ -16,10 +16,11 @@ configure_service() {
 Description=System Information Service
 
 [Service]
-ExecStart=/path/to/devopsfetch -d
+ExecStart=/home/dmex/hng-task5/monitoring-script/devopsfetch -d
 StandardOutput=append:/var/log/devopsfetch.log
 StandardError=append:/var/log/devopsfetch.log
 Restart=always
+RestartSec=30
 
 [Install]
 WantedBy=multi-user.target

@@ -139,50 +139,53 @@ time_range() {
     done
 }
 
-# Parse Command-line Arguments
-case $1 in
-    -p|--port)
-        if [ -z "$2" ]; then
-            active_ports
-        else
-            port_info "$2"
-        fi
-        ;;
-    -d|--docker)
-        if [ -z "$2" ]; then
-            docker_info
-        else
-            container_info "$2"
-        fi
-        ;;
-    -n|--nginx)
-        if [ -z "$2" ]; then
-            nginx_info
-        else
-            domain_info "$2"
-        fi
-        ;;
-    -u|--users)
-        if [ -z "$2" ]; then
-            user_logins
-        else
-            user_info "$2"
-        fi
-        ;;
-    -t|--time)
-        if [ -z "$2" ]; then
-            echo "Please provide a start date."
+# Main loop to continuously collect and log system information
+while true; do
+    case $1 in
+        -p|--port)
+            if [ -z "$2" ]; then
+                active_ports
+            else
+                port_info "$2"
+            fi
+            ;;
+        -d|--docker)
+            if [ -z "$2" ]; then
+                docker_info
+            else
+                container_info "$2"
+            fi
+            ;;
+        -n|--nginx)
+            if [ -z "$2" ]; then
+                nginx_info
+            else
+                domain_info "$2"
+            fi
+            ;;
+        -u|--users)
+            if [ -z "$2" ]; then
+                user_logins
+            else
+                user_info "$2"
+            fi
+            ;;
+        -t|--time)
+            if [ -z "$2" ]; then
+                echo "Please provide a start date."
+                exit 1
+            else
+                time_range "$2" "$3"
+            fi
+            ;;
+        -h|--help)
+            help
+            ;;
+        *)
+            echo "Invalid option: $1"
+            help
             exit 1
-        else
-            time_range "$2" "$3"
-        fi
-        ;;
-    -h|--help)
-        help
-        ;;
-    *)
-        echo "Invalid option: $1"
-        help
-        exit 1
-        ;;
-esac
+            ;;
+    esac
+    sleep 300  # Sleep for 5 minutes before the next iteration
+done
